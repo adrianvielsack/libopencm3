@@ -528,6 +528,16 @@ struct rcc_clock_scale {
 	uint8_t msi_range;
 };
 
+
+enum rcc_clock_config_entry {
+    RCC_CLOCK_HSE_16MHZ_OUT_32MHZ=0,
+    RCC_CLOCK_HSE_8MHZ_OUT_32MHZ,
+    RCC_CLOCK_HSE_8MHZ_OUT_16MHZ,
+    RCC_CLOCK_CONFIG_END
+};
+
+extern const struct rcc_clock_scale rcc_clock_config[RCC_CLOCK_CONFIG_END];
+
 /* --- Variable definitions ------------------------------------------------ */
 extern uint32_t rcc_ahb_frequency;
 extern uint32_t rcc_apb1_frequency;
@@ -686,6 +696,7 @@ enum rcc_periph_rst {
 	RST_LPTIM1 = _REG_BIT(0x28, 31),
 };
 #include <libopencm3/stm32/common/rcc_common_all.h>
+
 
 BEGIN_DECLS
 

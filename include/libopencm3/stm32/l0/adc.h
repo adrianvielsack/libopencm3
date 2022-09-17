@@ -80,6 +80,8 @@
 @ingroup adc_defines
 
 @{*/
+#define ADC_SMPR_SMP_SHIFT		0
+#define ADC_SMPR_SMP			(7 << ADC_SMPR_SMP_SHIFT)
 #define ADC_SMPR_SMP_1DOT5CYC		0x0
 #define ADC_SMPR_SMP_3DOT5CYC		0x1
 #define ADC_SMPR_SMP_7DOT5CYC		0x2
@@ -90,10 +92,14 @@
 #define ADC_SMPR_SMP_160DOT5CYC		0x7
 /**@}*/
 
+
+
 BEGIN_DECLS
 
 
-END_DECLS
 
+END_DECLS
+void adc_set_clk_source(uint32_t adc, uint32_t source);
+void adc_select_channel(uint32_t adc, uint32_t channel);
 
 #endif

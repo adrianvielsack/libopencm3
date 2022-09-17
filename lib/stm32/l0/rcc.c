@@ -44,6 +44,52 @@ uint32_t rcc_ahb_frequency = 2097000;
 uint32_t rcc_apb1_frequency = 2097000;
 uint32_t rcc_apb2_frequency = 2097000;
 
+const struct rcc_clock_scale rcc_clock_config[RCC_CLOCK_CONFIG_END] = {
+        /* 32 MHz from 16MHz HSE (div 2 mul 4), 1ws */
+        {
+                .pll_source = RCC_CFGR_PLLSRC_HSE_CLK,
+
+                .pll_div = RCC_CFGR_PLLDIV_DIV2,
+                .pll_mul = RCC_CFGR_PLLMUL_MUL4,
+                .hpre = RCC_CFGR_HPRE_NODIV,
+                .ppre1 = RCC_CFGR_HPRE_NODIV,
+                .ppre2 = RCC_CFGR_HPRE_NODIV,
+                .flash_waitstates = 1,
+                .voltage_scale = PWR_SCALE1,
+                .ahb_frequency = 32000000,
+                .apb1_frequency =32000000,
+                .apb2_frequency = 32000000,
+        },{
+                /* 32 MHz from 8MHz HSE (div 2 mul 8), 1ws */
+                .pll_source = RCC_CFGR_PLLSRC_HSE_CLK,
+
+                .pll_div = RCC_CFGR_PLLDIV_DIV2,
+                .pll_mul = RCC_CFGR_PLLMUL_MUL8,
+                .hpre = RCC_CFGR_HPRE_NODIV,
+                .ppre1 = RCC_CFGR_HPRE_NODIV,
+                .ppre2 = RCC_CFGR_HPRE_NODIV,
+                .flash_waitstates = 1,
+                .voltage_scale = PWR_SCALE1,
+                .ahb_frequency = 32000000,
+                .apb1_frequency =32000000,
+                .apb2_frequency = 32000000,
+        },{
+                /* 16 MHz from 8MHz HSE (div 2 mul 4), 1ws */
+                .pll_source = RCC_CFGR_PLLSRC_HSE_CLK,
+
+                .pll_div = RCC_CFGR_PLLDIV_DIV2,
+                .pll_mul = RCC_CFGR_PLLMUL_MUL4,
+                .hpre = RCC_CFGR_HPRE_NODIV,
+                .ppre1 = RCC_CFGR_HPRE_NODIV,
+                .ppre2 = RCC_CFGR_HPRE_NODIV,
+                .flash_waitstates = 1,
+                .voltage_scale = PWR_SCALE1,
+                .ahb_frequency = 16000000,
+                .apb1_frequency =16000000,
+                .apb2_frequency = 16000000,
+        },
+};
+
 void rcc_osc_on(enum rcc_osc osc)
 {
 	switch (osc) {
