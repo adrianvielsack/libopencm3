@@ -57,7 +57,7 @@ void adc_set_clk_source(uint32_t adc, uint32_t source)
 
 void adc_set_sample_time_on_all_channels(uint32_t adc, uint8_t time)
 {
-    ADC_SMPR1(adc) = time & ADC_SMP
+    ADC_SMPR1(adc) = time & ADC_SMPR_SMP;
 }
 
 
